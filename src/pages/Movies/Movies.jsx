@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import SearchBar from "components/SearchBar/SearchBar";
-import SearchMoviesList from "components/SearchMoviesList/SearchMoviesList";
-import { searchMovies } from "components/api/api";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchMoviesList from "../../components/SearchMoviesList/SearchMoviesList";
+import { searchMovies } from "../../components/api/api";
 import { Outlet, useSearchParams } from "react-router-dom";
 import Notiflix from "notiflix";
-import Loader from "components/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);

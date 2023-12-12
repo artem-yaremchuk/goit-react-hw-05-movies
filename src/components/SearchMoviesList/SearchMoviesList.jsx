@@ -1,6 +1,6 @@
 import css from "./SearchMoviesList.module.css";
 import { Link, useLocation } from "react-router-dom";
-import MovieListItem from "components/MovieListItem/MovieListItem";
+import MovieListItem from "../MovieListItem/MovieListItem";
 
 const SearchMoviesList = ({ searchResults }) => {
   const location = useLocation();

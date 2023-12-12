@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CastItem from "components/CastItem/CastItem";
+import CastItem from "../../components/CastItem/CastItem";
 import { useParams } from "react-router-dom";
 import css from "./Cast.module.css";
 import { getCredits } from "../../components/api/api";
@@ -8,26 +8,30 @@ import Loader from "../../components/Loader/Loader";
 
 const Cast = () => {
   const { movieId } = useParams();
-  const [credits, setCredits] = useState([]);
+  const [credits, setCredits] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const handleData = async () => {
-      if (!movieId) return;
+    if (movieId) {
+      const handleData = async () => {
+        try {
+          setIsLoading(true);
+          const data = await getCredits(movieId);
+          setCredits(data);
+        } catch (error) {
+          Notiflix.Notify.failure(error.message);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
-      try {
-        setIsLoading(true);
-        const data = await getCredits(movieId);
-        setCredits(data);
-      } catch (error) {
-        Notiflix.Notify.failure(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    handleData();
+      handleData();
+    }
   }, [movieId]);
+
+  if (!credits) {
+    return;
+  }
 
   return (
     <div>

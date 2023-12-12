@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ReviewItem from "components/ReviewItem/ReviewItem";
-import Loader from "components/Loader/Loader";
+import ReviewItem from "../../components/ReviewItem/ReviewItem";
+import Loader from "../../components/Loader/Loader";
 import { useParams } from "react-router-dom";
 import css from "./Reviews.module.css";
 import { getReviews } from "../../components/api/api";
@@ -12,23 +12,27 @@ const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const handleData = async () => {
-      if (!movieId) return;
+    if (movieId) {
+      const handleData = async () => {
+        try {
+          setIsLoading(true);
+          const data = await getReviews(movieId);
+          setReviews(data);
+          setIsLoading(false);
+        } catch (error) {
+          Notiflix.Notify.failure(error.message);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
-      try {
-        setIsLoading(true);
-        const data = await getReviews(movieId);
-        setReviews(data);
-        setIsLoading(false);
-      } catch (error) {
-        Notiflix.Notify.failure(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    handleData();
+      handleData();
+    }
   }, [movieId]);
+
+  if (!reviews) {
+    return;
+  }
 
   return (
     <div>
@@ -36,9 +40,9 @@ const Reviews = () => {
         <Loader />
       ) : (
         <section className={css.reviews}>
-          {reviews.length > 0 ? (
+          {reviews.results.length > 0 ? (
             <ul className={css.reviewsList}>
-              {reviews.map((review) => (
+              {reviews.results.map((review) => (
                 <ReviewItem key={review.id} review={review} />
               ))}
             </ul>
