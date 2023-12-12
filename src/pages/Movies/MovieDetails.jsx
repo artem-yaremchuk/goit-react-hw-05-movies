@@ -9,7 +9,7 @@ import Notiflix from "notiflix";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movieDetails, setMovieDetails] = useState([]);
+  const [movieDetails, setMovieDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
@@ -31,6 +31,10 @@ const MovieDetails = () => {
 
     handleData();
   }, [movieId]);
+
+  if (!movieDetails) {
+    return;
+  }
 
   return (
     <div>

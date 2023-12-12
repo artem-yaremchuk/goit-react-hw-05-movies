@@ -13,12 +13,10 @@ const MovieListItem = ({ movieDetails }) => {
             ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
             : defaultImg
         }
-        alt={movieDetails.title}
+        alt={movieDetails.title || movieDetails.name}
         className={css.movieListItemImg}
       />
-      <h2 className={css.movieListItemTitle}>
-        {movieDetails.title}
-      </h2>
+      <h2 className={css.movieListItemTitle}>{movieDetails.title || movieDetails.name}</h2>
     </div>
   );
 };

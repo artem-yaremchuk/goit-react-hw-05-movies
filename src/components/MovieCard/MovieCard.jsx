@@ -5,7 +5,7 @@ const defaultImg =
 
 const MovieCard = ({ movieDetails }) => {
   const releaseDate = movieDetails.release_date;
-  const releaseYear = releaseDate.split(" ")[0];
+  const releaseYear = releaseDate.split("-")[0];
 
   return (
     <section className={css.movieCard}>

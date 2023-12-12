@@ -8,7 +8,7 @@ import Notiflix from "notiflix";
 
 const Reviews = () => {
   const { movieId } = useParams();
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
