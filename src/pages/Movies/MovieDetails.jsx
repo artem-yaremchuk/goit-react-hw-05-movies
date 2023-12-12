@@ -22,7 +22,7 @@ const MovieDetails = () => {
           const details = await getMovieDetails(movieId);
           setMovieDetails(details);
         } catch (error) {
-          Notiflix.Notify.failure(error.message);
+          Notiflix.Notify.failure("There is no detailed info about this movie");
         } finally {
           setIsLoading(false);
         }

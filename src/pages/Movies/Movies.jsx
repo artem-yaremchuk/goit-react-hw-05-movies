@@ -40,7 +40,7 @@ const Movies = () => {
         <Loader />
       ) : (
         <div>
-          <SearchBar onSubmit={handleSubmit} />
+          <SearchBar submit={handleSubmit} />
           <SearchMoviesList searchResults={searchResults} />
           <Outlet />
         </div>
