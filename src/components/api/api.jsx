@@ -28,9 +28,10 @@ export const getMovieDetails = async (movieId) => {
     api_key: API_KEY,
     language: "en-US",
   });
-  const { data } = await axios.get(`/movie/${movieId}?${params}`);
-
-  return data;
+  const response  = await axios.get(`/movie/${movieId}?${params}`);
+  console.log(response.status);
+  return response.data;
+  
 };
 
 export const searchMovies = async (searchItem) => {

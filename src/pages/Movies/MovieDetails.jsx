@@ -15,21 +15,21 @@ const MovieDetails = () => {
   const backLinkHref = location.state?.from ?? "/";
 
   useEffect(() => {
-    const handleData = async () => {
-      if (!movieId) return;
+    if (movieId) {
+      const handleData = async () => {
+        try {
+          setIsLoading(true);
+          const details = await getMovieDetails(movieId);
+          setMovieDetails(details);
+        } catch (error) {
+          Notiflix.Notify.failure(error.message);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
-      try {
-        setIsLoading(true);
-        const details = await getMovieDetails(movieId);
-        setMovieDetails(details);
-      } catch (error) {
-        Notiflix.Notify.failure(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    handleData();
+      handleData();
+    }
   }, [movieId]);
 
   if (!movieDetails) {
