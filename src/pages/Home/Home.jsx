@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getTrendingMovies } from "../../components/api/api";
-import MovieList from "../../components/MoviesList/MoviesList";
+import MoviesList from "../../components/MoviesList/MoviesList";
 import Loader from "../../components/Loader/Loader";
 import Notiflix from "notiflix";
+import css from "./Home.module.css";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -23,7 +24,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div>{isLoading ? <Loader /> : <MovieList movies={trendingMovies} />}</div>
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className={css.trendingMovies}>
+          <h1 className={css.trendingMoviesTitle}>Trending today</h1>
+          <MoviesList movies={trendingMovies} />
+        </div>
+      )}
+    </div>
   );
 };
 

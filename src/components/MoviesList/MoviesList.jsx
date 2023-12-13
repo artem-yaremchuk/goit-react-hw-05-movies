@@ -2,13 +2,15 @@ import css from "./MoviesList.module.css";
 import { Link, useLocation } from "react-router-dom";
 import MovieListItem from "../MovieListItem/MovieListItem";
 
-const MovieList = ({ movies }) => {
+const MoviesList = ({ movies }) => {
   const location = useLocation();
 
+  if(!movies) {
+    return;
+  }
+
   return (
-    <section className={css.trendingMovies}>
-      <h1 className={css.trendingMoviesTitle}>Trending today</h1>
-      <ul className={css.trendingMoviesList}>
+      <ul className={css.moviesList}>
         {movies.results.map((movie) => (
           <li key={movie.id}>
             <Link
@@ -20,8 +22,7 @@ const MovieList = ({ movies }) => {
           </li>
         ))}
       </ul>
-    </section>
   );
 };
 
-export default MovieList;
+export default MoviesList;
