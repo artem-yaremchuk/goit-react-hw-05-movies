@@ -5,7 +5,7 @@ const ReviewItem = ({ review }) => {
 
   return (
     <li className={css.reviewItem}>
-      <h2 className={css.author}>Author: {author}</h2>
+      <h3 className={css.author}>Author: {author}</h3>
       <p className={css.content}>{content}</p>
     </li>
   );

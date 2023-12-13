@@ -1,0 +1,10 @@
+.cast {
+    padding: 25px;
+}
+
+.castList {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 25px;
+    row-gap: 70px;
+}

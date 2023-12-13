@@ -13,7 +13,6 @@ const MovieList = ({ movies }) => {
           <li key={movie.id}>
             <Link
               to={`/movies/${movie.id}`}
-              className={css.trendingMoviesLink}
               state={{ from: location }}
             >
               <MovieListItem movieDetails={movie} />

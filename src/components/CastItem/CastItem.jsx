@@ -5,7 +5,7 @@ const defaultImg =
 
 const CastItem = ({ actor }) => {
   return (
-    <li className={css.castCard}>
+    <li className={css.castItem}>
       <img
         src={
           actor.profile_path
@@ -16,7 +16,7 @@ const CastItem = ({ actor }) => {
         className={css.castCardImg}
       />
       <div className={css.castText}>
-        <h2 className={css.castName}>{actor.name}</h2>
+        <h4 className={css.castName}>{actor.name}</h4>
         <p className={css.castCharacter}>Character: {actor.character}</p>
       </div>
     </li>

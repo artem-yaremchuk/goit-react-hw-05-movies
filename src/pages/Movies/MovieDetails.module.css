@@ -1,0 +1,23 @@
+.addInfo {
+    padding: 25px;
+    border: 1px solid var(--CORNFLOWER, #E7E9FC);
+}
+
+.addInfoTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.addInfoLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.movieLink {
+    transition: color var(--transition);
+}
+
+.movieLink:hover,
+.movieLink.focus {
+    color: var(--hover-focus-color);
+}

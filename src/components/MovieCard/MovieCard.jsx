@@ -9,7 +9,7 @@ const MovieCard = ({ movieDetails }) => {
 
   return (
     <section className={css.movieCard}>
-      <div>
+      <div className={css.movieCardPhoto}>
         <img
           src={
             movieDetails.poster_path
@@ -21,15 +21,15 @@ const MovieCard = ({ movieDetails }) => {
         />
       </div>
       <div className={css.movieCardInfo}>
-        <h2 className={css.movieCardTitle}>
+        <h2>
           {movieDetails.title} ({releaseYear})
         </h2>
-        <p className={css.movieCardScore}>
+        <p>
           User Score: {Math.round(movieDetails.popularity)}%
         </p>
-        <h3 className={css.movieCardOverview}>Overview</h3>
-        <p className={css.movieCardOverviewDesc}>{movieDetails.overview}</p>
-        <h3 className={css.movieCardGenres}>Genres</h3>
+        <h3>Overview</h3>
+        <p>{movieDetails.overview}</p>
+        <h3>Genres</h3>
         <ul className={css.genresList}>
           {movieDetails.genres.map((genre) => (
             <li key={genre.id} className={css.genreItem}>

@@ -1,0 +1,9 @@
+.reviewItem {
+    border-bottom: 2px solid #E7E9FC;
+    background-color: #FFFF;
+    padding: 10px;
+}
+
+.author {
+    margin-bottom: 10px;
+}
