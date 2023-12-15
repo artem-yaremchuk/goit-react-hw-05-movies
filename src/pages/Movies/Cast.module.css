@@ -5,6 +5,6 @@
 .castList {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 25px;
+    column-gap: 60px;
     row-gap: 70px;
 }

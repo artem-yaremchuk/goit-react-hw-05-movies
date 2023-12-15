@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import { searchMovies } from "../../components/api/api";
@@ -45,7 +45,10 @@ const Movies = () => {
           {searchResults && (
             <div className={css.searchedMovies}>
               <MoviesList movies={searchResults} />
-              <Outlet />
+
+              <Suspense fallback={<Loader />}>
+                <Outlet />
+              </Suspense>
             </div>
           )}
         </div>

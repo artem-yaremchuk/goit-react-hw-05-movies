@@ -6,6 +6,7 @@ import BackButton from "../../components/BackButton/BackButton";
 import css from "./MovieDetails.module.css";
 import { getMovieDetails } from "../../components/api/api";
 import Notiflix from "notiflix";
+import { Suspense } from "react";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -69,7 +70,9 @@ const MovieDetails = () => {
               </ul>
             </div>
           </div>
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </div>
       )}
     </div>
