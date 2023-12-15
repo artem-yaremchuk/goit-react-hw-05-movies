@@ -10,3 +10,9 @@
     text-transform: capitalize;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .trendingMoviesTitle {
+        text-align: center;
+    }
+}

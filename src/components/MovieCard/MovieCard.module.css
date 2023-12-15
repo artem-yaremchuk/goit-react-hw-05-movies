@@ -31,3 +31,25 @@
     display: flex;
     gap: 10px;
 }
+
+@media screen and (max-width: 768px) {
+    .movieCard {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .movieCardPhoto {
+        width: 80%;
+        height: auto;
+    }
+
+    .movieCardInfo {
+        width: 80%;
+    }
+
+    .genresList {
+        justify-content: center;
+    }
+}

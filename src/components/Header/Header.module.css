@@ -23,3 +23,10 @@
 .headerLink:hover {
     color: var(--hover-focus-color);
 }
+
+@media screen and (max-width: 768px) {
+    .headerList {
+        justify-content: center;
+        gap: 25px;
+    }
+}

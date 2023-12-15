@@ -10,3 +10,9 @@
     flex-direction: column;
     gap: 15px;
 }
+
+@media screen and (max-width: 768px) {
+    .info {
+        text-align: center;
+    }
+}
