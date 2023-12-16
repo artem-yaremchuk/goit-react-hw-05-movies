@@ -21,10 +21,24 @@
     object-fit: cover;
 }
 
-.movieCardInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.movieCardInfoTitle {
+    margin-bottom: 20px;
+}
+
+.movieCardOverview {
+    margin-bottom: 10px;
+}
+
+.movieCardScore {
+    margin-bottom: 20px;
+}
+
+.overviewInfo {
+    margin-bottom: 20px;
+}
+
+.movieCardGenres {
+    margin-bottom: 10px;
 }
 
 .genresList {
@@ -36,8 +50,11 @@
     .movieCard {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
         text-align: center;
+    }
+
+    .overviewInfo {
+        text-align: justify;
     }
 
     .movieCardPhoto {
