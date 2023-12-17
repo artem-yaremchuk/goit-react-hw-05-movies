@@ -28,7 +28,6 @@ const MovieDetails = () => {
           setIsLoading(false);
         }
       };
-
       handleData();
     }
   }, [movieId]);

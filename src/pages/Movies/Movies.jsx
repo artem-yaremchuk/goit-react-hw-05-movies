@@ -45,7 +45,6 @@ const Movies = () => {
           {searchResults && (
             <div className={css.searchedMovies}>
               <MoviesList movies={searchResults} />
-
               <Suspense fallback={<Loader />}>
                 <Outlet />
               </Suspense>
